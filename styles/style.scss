@@ -1,0 +1,621 @@
+$primary: #87CEEB;
+$secondary: #F0F0F0;
+$fontHead: 'Comfortaa', sans-serif;
+$fontBody: 'Libre Franklin', sans-serif;
+
+body {
+	font-size: 62.5%;
+	font-family: $fontHead;
+}
+
+p {
+	margin: 0;
+	font-family: $fontBody;
+	font-size: 1.1rem;
+}
+
+h2 {
+	font-size: 2.6rem;
+	color: $primary;
+	letter-spacing: .5rem;
+	text-transform: uppercase;
+	margin: 0 0 60px 0;
+	text-shadow: 3px 3px $secondary;
+}
+
+h3 {
+	margin: 0;
+	font-size: 1.5rem;
+	color: $primary;
+}
+
+h4 {
+	font-size: 1.4rem;
+	margin: 0 0 20px 0;
+	line-height: 2;
+	color: $primary; 
+}
+
+a {
+	display: block;
+}
+
+.italic {
+	font-style: italic;
+}
+
+.wrapper {
+	width: 80%;
+	max-width: 1120px;
+	margin: 0 auto;
+}
+
+
+section {
+	width: 100%;
+	.innerWrapper {
+		width: 75%;
+		padding: 100px 0;
+		border-bottom: 2px solid $secondary;
+	}
+}
+
+section:last-child .innerWrapper {
+	border: none;
+}
+
+// NAVIGATION MENU STYLES
+
+//Regular nav bar styles
+.navBar {
+	position: fixed;
+	left: 0;
+	right: 0;
+	padding-top: 50px;
+	transition: all .75s ease;
+	z-index: 998;
+	.wrapper {
+		width: 90%;
+		max-width: 1240px;
+		margin: 0 auto;
+		display: flex;
+		justify-content: space-between;
+	}
+	.logo {
+		width: 15%;
+		max-width: 200px;
+		.logo1 {
+			width: 100%;
+		}
+		.logo2 {
+			display: none;
+		}
+	}
+	ul {
+		margin: 0;
+		padding: 0;
+		list-style-type: none;
+		display: flex;
+		li {
+			margin: 0 5px;
+		}
+		a {
+			color: #fff;
+			font-weight: 700;
+			border: 2px solid transparent;
+			border-radius: 40px;
+			transition: .2s;
+			display: block;
+			text-decoration: none;
+			font-size: 1.2rem;
+			padding: 15px;
+		}
+		a:hover {
+			background: $primary;
+			border-radius: 40px;
+		}
+	}
+}
+
+//Nav bar below header (shrunken) styles
+.navBar.shrink {
+	z-index: 999;
+	background: #fff;
+	border-bottom: 2px solid $primary;
+	padding-top: 0;
+	.wrapper {
+		align-items: center;
+	}
+	.logo1 {
+		display: none;
+	}
+	.logo2 {
+		width: 45px;
+		display: block;
+		margin: 15px;
+	}
+	a {
+	color: $primary;
+	}
+	li:hover a {
+	background: #fff;
+		border-radius: 40px;
+		border: 2px solid $primary;
+	}
+}
+
+//Hamburger nav (responsive) styles
+.navBar.overlay {
+	position: absolute;
+	top: 0;
+	bottom: 30vh;
+	background: linear-gradient(to bottom, $primary 70%, transparent);
+	color: white;
+	.wrapper {
+		display: flex;
+		flex-direction: column;
+	}
+	.logo {
+		display: none;
+	}
+}
+
+.overlay ul {
+	flex-direction: column;
+}
+
+.overlay ul li a {
+	text-align: center;
+	width: 100%;
+	padding: 20px;
+}
+
+.overlay ul li a:hover {
+	transform: scale(1.1);
+}
+
+.overlay .hamburger {
+	display: block;
+	font-size: 2rem;
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+.hamburger {
+	font-size: 2.5rem;
+	color: #fff;
+	display: none;
+}
+//
+
+//HEADER STYLES
+header {
+	background: linear-gradient(to bottom, rgba(1,1,1,.3) 5%, rgba(1,1,1,0) 40%), url(../assets/home-header.jpg);
+	background-position: center;
+	background-attachment: fixed;
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 100vh;
+	position: relative;
+	.squirrelDown {
+		position: absolute;
+		text-shadow: 0 0 80px black;
+		bottom: 50px;
+		right: 100px;
+		display: flex;
+		cursor: pointer;
+		animation-play-state: paused;
+		transition: .5s;
+		padding: 10px;
+		h3, i {
+			z-index: 1;
+			font-size: 1.3rem;
+			color: #fff;
+			margin-right: 10px;
+		}
+	}
+	.squirrelDown:hover {
+		text-shadow: 0 0 40px black;
+		animation-play-state: running;
+	}
+}
+//HEADER END
+
+//SQUIRREL IN CUP SCROLL STYLES
+.squirrelCup {
+	width: 350px;
+	height: 100vh;
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	z-index: -1;
+	.container {
+		width: 100%;
+		img {
+			width: 100%;
+			position: absolute;
+		}
+		.cup {
+			bottom: 0;
+		}
+	}
+}
+
+//Squirrel inside cup styles to move up at targeted scroll heights
+.cupsquirrel {
+	display: none;
+	z-index: -2;
+}
+
+@mixin bottom($bottomValue) {
+	bottom: $bottomValue;
+	display: block;
+}
+
+.cupsquirrel.up1 {
+	@include bottom(30px);
+}
+
+.cupsquirrel.up2 {
+	@include bottom(50px);
+}
+
+.cupsquirrel.up3 {
+	@include bottom(70px);
+}
+
+.cupsquirrel.up4 {
+	@include bottom(90px);
+}
+
+.cupsquirrel.up5 {
+	@include bottom(110px);
+}
+
+.cupsquirrel.up6 {
+	@include bottom(130px);
+}
+
+.cupsquirrel.up7 {
+	@include bottom(150px);
+}
+
+.cupsquirrel.up8 {
+	@include bottom(160px);
+}
+
+.cupsquirrel.up9 {
+	@include bottom(170px);
+}
+//end of squirrel in cup styles
+
+// ABOUT section styles
+#about {
+	p {
+		margin-bottom: 20px;
+		line-height: 2;
+	}
+}
+
+//MEET THE SQUIRRELS section styles
+#meet {
+	.profileContainer {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		.profile {
+			flex: 1 0 auto;
+			text-align: center;
+			border-bottom: 5px solid transparent;
+			width: 20%;
+			padding: 0.75%;
+			h3 {
+				line-height: 2;
+			}
+			img {
+				width: 100%;
+				border-radius: 50%;
+				border: 5px solid transparent;
+				border-radius: 50%;
+			}
+		}
+		.profile:hover img {
+			border: 5px solid $primary;
+			transition: .3s;
+		}
+		.profile1, 
+		.profile2, 
+		.profile3, 
+		.profile4,
+		.profile5 {
+			cursor: pointer;
+		}
+		.profile1.selected,
+		.profile2.selected,
+		.profile3.selected,
+		.profile4.selected,
+		.profile5.selected {
+			border-bottom: 5px solid $primary;
+			transition: .2s;
+			img {
+				border: 5px solid $primary;
+			}
+		}
+	}
+	.info {
+		background: $secondary;
+		display: none;
+		transition: 1s;
+		position: relative;
+		padding: 40px;
+		opacity: 0;
+		-webkit-animation-duration: .5s;
+		h3 {
+			margin-bottom: 20px;
+		}
+		p {
+			line-height: 2;
+		}
+		.closebutton {
+			font-size: 1.6rem;
+			color: darken($secondary, 30);
+			position: absolute;
+			top: 0;
+			right: 0;
+			padding: 10px;
+			cursor: pointer;
+		}
+	}
+	.info1.open,
+	.info2.open,
+	.info3.open,
+	.info4.open,
+	.info5.open {
+		display: block;
+		opacity: 1;
+  	}
+}
+
+//MENU section styles
+#menu {
+	.readMore {
+	    width: 100%;
+	    cursor: pointer;
+	    margin-bottom: 30px;
+	}
+	.category {
+		display:none;
+		padding: 30px;
+		p {
+			margin-bottom: 30px;
+			display: flex;
+			justify-content: space-between;
+		}
+		p span:first-child {
+			font-weight: 700;
+			text-transform: uppercase;
+		}
+	}
+  	.category.active {
+		display: block;
+	}
+}
+
+.readMore {
+	h3 {
+		border-bottom: 3px solid $primary;
+		padding: 20px;
+		text-transform: uppercase;
+		display: flex;
+		justify-content: space-between;
+    }
+}
+
+// CONTACT sections styles
+.contactBody {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	.contactInfo div {
+		display: flex;
+		margin-bottom: 40px;
+		a {
+			text-decoration: none;
+			color: #000;
+			transition: .2s;
+		}
+		a:hover {
+			color: $primary;
+		}
+	}
+	table {
+		font-family: $fontBody;
+		font-size: 1.1rem;
+		margin: 0;
+		padding: 0;
+    	border-spacing: 0;
+    	line-height: 1.8;
+    }
+    td:first-child {
+    	padding-right: 30px;
+	}
+	p {
+		line-height: 1.8;
+	}
+	i {
+		color: $primary;
+		width: 60px;
+		font-size: 1.8rem;
+		text-align: center;
+		padding-top: 5px;
+	}
+}
+
+.newsletter {
+	h3 {
+		text-transform: uppercase;
+		margin-bottom: 25px;
+	}
+	p {
+		margin-bottom: 20px;
+	}
+	.newsletterFormContainer {
+ 		form input {
+	 		font-size: 1rem;
+			width: 100%;
+			font-family: $fontBody;
+			padding: 10px;
+			margin-bottom: 20px;
+			background: $secondary;
+			border: 1px solid transparent;
+
+		}
+		button {
+			font-size: 1.1rem;
+			font-family: $fontHead; 
+			background: $primary;
+			color: #fff;
+			width: 120px;
+			padding: 10px;
+			border-radius: 20px;
+			border: 2px solid $primary;
+			box-shadow: none;
+			transition: .2s;
+		}
+		button:hover {
+			background: #fff;
+			color: $primary;
+			cursor: pointer;
+		}
+	}
+}
+
+// FOOTER styles
+footer {
+	background: $secondary;
+	color: darken($secondary, 30);
+	.wrapper {
+		padding: 40px 0;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+	.socialIcons {
+		width: 200px;
+		display: flex;
+		justify-content: space-between;
+		a {
+			text-decoration: none;
+			color: inherit;
+			font-size: 1.4rem;
+			transition: .2s;
+			padding: 5px;
+		}
+		a:hover {
+			color: $primary;
+			transform: scale(1.2);
+		}
+	}
+	p {
+		font-size: 0.8rem;
+		font-family: $fontHead;
+	}
+}
+
+// MEDIA QUERIES
+
+//Add semi-transparent background to content to overlap cupsquirrel
+@media (max-width: 1023px) {
+	main {
+		background: rgba(255,255,255,0.8);
+	}
+}
+
+@media (max-width: 900px) {
+	section .innerWrapper {
+		width: 100%;
+	}
+
+	.navBar ul li a {
+		font-size: 1rem;
+	}
+
+	header {
+	height: 80vh;
+	.squirrelDown {
+		display: none;
+		}
+	}
+}
+
+@media (max-width: 770px) {
+	.hamburger {
+		display: block;
+	}
+	
+	.navBar ul {
+		display: none;
+	}
+	
+	.navBar ul.show {
+		display: flex;
+	}
+
+	.navBar ul li a {
+		font-size: 2rem;
+	}
+
+	.overlay ul li a {
+		font-size: 1.5rem;
+	}
+
+	.navBar.shrink {
+		display: none;
+	}
+
+	.navBar .logo {
+		width: 40%;
+	}
+
+	.profile h4 {
+		display: none;
+	}
+}
+
+@media (max-width: 412px) {
+	h2 {
+		font-size: 2rem;
+		margin: 0 0 30px 0;
+	}
+	h3 {
+		font-size: 1.4rem;
+	}
+	h4 {
+		font-size: 1.2rem;
+	}
+	p {
+		font-size: 0.8rem;
+	}
+
+	section .innerWrapper {
+		padding: 40px 0;
+	}
+
+	.contactBody table {
+		font-size: 0.8rem;
+	}
+
+	footer .wrapper {
+		flex-direction: column;
+		padding: 25px;
+		.socialIcons {
+			margin-bottom: 15px;
+		}
+	}
+
+	a {
+		font-size: 0.8rem;
+	}
+}
+
